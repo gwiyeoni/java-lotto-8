@@ -3,6 +3,8 @@ package lotto.controller;
 import lotto.Lotto;
 import lotto.common.Constants;
 import lotto.domain.LottoGenerator;
+import lotto.domain.LottoRank;
+import lotto.domain.LottoResult;
 import lotto.util.StringParser;
 import lotto.validation.BonusNumberValidator;
 import lotto.validation.PurchaseAmountValidator;
@@ -33,8 +35,10 @@ public class LottoController {
         OutputView.printPurchasedLottos(lottos);
 
         Lotto winningLotto = getWinningNumbers();
-
         int bonusNumber = getBonusNumber(winningLotto);
+
+        LottoResult result = calculateResults(winningLotto, bonusNumber);
+        double profitRate = result.calculateProfitRate(purchaseAmount);
     }
 
     private int getPurchaseAmount() {
@@ -78,5 +82,19 @@ public class LottoController {
                 OutputView.printError(e.getMessage());
             }
         }
+    }
+
+    private LottoResult calculateResults(Lotto winningLotto, int bonusNumber) {
+        LottoResult result = new LottoResult();
+        for (Lotto lotto : lottos) {
+
+            int matchCount = lotto.countMatchingNumbers(winningLotto);
+            boolean bonusMatch = lotto.contains(bonusNumber);
+
+            LottoRank rank = LottoRank.valueOf(matchCount, bonusMatch);
+
+            result.add(rank);
+        }
+        return result;
     }
 }
