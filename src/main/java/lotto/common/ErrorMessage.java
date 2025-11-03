@@ -7,6 +7,7 @@ public class ErrorMessage {
     public static final String NOT_NUM = ERROR_MSG + "구입 금액은 숫자여야 합니다.";
     public static final String NOT_THOUSAND = ERROR_MSG + "구입 금액은 1,000원 단위여야 합니다.";
     public static final String NOT_POSITIVE_NUM = ERROR_MSG + "구입 금액은 0보다 커야 합니다.";
+
     public static final String NOT_LOTTO_NUMBER_COUNT = ERROR_MSG + "로또 번호는 6개여야 합니다.";
     public static final String NOT_UNIQUE_LOTTO_NUMBER = ERROR_MSG + "로또 번호는 중복될 수 없습니다.";
 
@@ -14,5 +15,8 @@ public class ErrorMessage {
     public static final String NOT_WINNING_NUMBER_NUMERIC = ERROR_MSG + "당첨 번호는 숫자여야 합니다.";
     public static final String NOT_WINNING_NUMBER_RANGE = ERROR_MSG + "로또 번호는 " +
             Constants.LOTTO_NUMBER_MIN + "부터 " + Constants.LOTTO_NUMBER_MAX + " 사이의 숫자여야 합니다.";
+
+    public static final String NOT_BONUS_NUMBER_NUMERIC = ERROR_MSG + "보너스 번호는 숫자여야 합니다.";
+    public static final String NOT_UNIQUE_BONUS_NUMBER = ERROR_MSG + "보너스 번호가 당첨 번호와 중복될 수 없습니다.";
 
 }
