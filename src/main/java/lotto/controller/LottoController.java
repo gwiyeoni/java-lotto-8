@@ -39,6 +39,9 @@ public class LottoController {
 
         LottoResult result = calculateResults(winningLotto, bonusNumber);
         double profitRate = result.calculateProfitRate(purchaseAmount);
+
+        OutputView.printWinningStatistics(result);
+        OutputView.printProfitRate(profitRate);
     }
 
     private int getPurchaseAmount() {
