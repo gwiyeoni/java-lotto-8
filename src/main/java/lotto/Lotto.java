@@ -22,7 +22,7 @@ public class Lotto {
 
         Set<Integer> uniqueNumbers = new HashSet<>(numbers);
         if (uniqueNumbers.size() != Constants.LOTTO_NUMBER_COUNT) {
-            throw new IllegalArgumentException(ErrorMessage.NOT_LOTTO_NUMBER_COUNT);
+            throw new IllegalArgumentException(ErrorMessage.NOT_UNIQUE_LOTTO_NUMBER);
         }
     }
 
